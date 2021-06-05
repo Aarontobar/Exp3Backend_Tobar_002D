@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nosotros</title>
         {% load static %}
-        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'core/css/estilos1.css' %}"> 
-        <link rel="stylesheet" href="{% static 'core/css/barra.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estilos1.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/barra.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,14 +25,14 @@
         </script>
     </head>
     <body>
-
+        {% load static %}
         <div id="progresbar"></div>
         <div id="scrollpath"></div>
 
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand navtext" href="#">
-                    <img src="{% static 'core/img/logo1.png' %}" alt="" width="75px">gamezone
+                    <img src="{% static 'img/logo1.png' %}" alt="" width="75px">gamezone
                 </a>
 
                 <button class="navbar-toggler"
@@ -76,7 +76,7 @@
                 <div id="1" class="card h-100" style="max-width: 540px">
                     <div class="row row-cols-2 row-col-sm-2 row-cols-md-2">
                         <div class="col-sm-6 col-6">
-                            <img src="{% static 'core/img/nose1.jpg' %}" class="img-fluid">
+                            <img src="{% static 'img/nose1.jpg' %}" class="img-fluid">
                         </div>
                         <div class="col-sm-6 col-6">
                             <div class="card-body">
@@ -92,7 +92,7 @@
                 <div id="2" class="card h-100" style="max-width: 540px; width:auto; margin:auto auto;">
                     <div class="row row-cols-2 row-col-sm-2 row-cols-md-2">
                         <div class="col-sm-6 col-6">
-                            <img src="{% static 'core/img/nose2.jpg' %}" class="card-img-top img-fluid">
+                            <img src="{% static 'img/nose2.jpg' %}" class="card-img-top img-fluid">
                         </div>
                         <div class="col-sm-6 col-6">
                             <h5 class="card-title">ofertas inperdibles todos los dias</h5>
@@ -106,7 +106,7 @@
                 <div id="3" class="card h-100" style="max-width: 540px; width:auto; margin: 0px 0px 0px auto;">
                     <div class="row row-cols-2 row-col-am-2 row-cols-md-2">
                         <div class="col-sm-4 col-6">
-                            <img src="{% static 'core/img/nose3.png' %}" class="card-img-top img-fluid">
+                            <img src="{% static 'img/nose3.png' %}" class="card-img-top img-fluid">
                         </div>
                         <div class="col-sm-4 col-6">
                             <h5 class="card-title">las mejores marcas de videojuegos</h5>
@@ -188,10 +188,10 @@
                <h3>gamezone</h3>
                <p>lleva tu experiencia de juego al proximo nivel con gamezone</p>
                <ul class="redes">
-                   <li><a href="#"><img src="{% static 'core/img/logos1.jpg' %}"></a></li>
-                   <li><a herf="#"><img src="{% static 'core/img/logos2.png' %}"></a></li>
-                   <li><a href="#"><img src="{% static 'core/img/logos3.png' %}"></a></li>
-                   <li><a href="#"><img src="{% static 'core/img/logos4.png' %}"></a></li>
+                   <li><a href="#"><img src="{% static 'img/logos1.jpg' %}"></a></li>
+                   <li><a herf="#"><img src="{% static 'img/logos2.png' %}"></a></li>
+                   <li><a href="#"><img src="{% static 'img/logos3.png' %}"></a></li>
+                   <li><a href="#"><img src="{% static 'img/logos4.png' %}"></a></li>
                </ul>
            </div>
 
@@ -211,6 +211,6 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" 
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" 
         crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
 </html>

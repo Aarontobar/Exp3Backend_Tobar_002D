@@ -5,17 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>iniciar sesion</title>
         {% load static %}
-        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'core/css/estiloscomprar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estiloscomprar.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     </head>
     <body>
-
+        {% load static %}
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand navtext" href="#">
-                    <img src="{% static 'core/img/logo1.png' %}" alt="" width="75">gamezone
+                    <img src="{% static 'img/logo1.png' %}" alt="" width="75">gamezone
                 </a>
 
                 <button class="navbar-toggler"
@@ -47,30 +49,30 @@
                 <div class="card">
                     <div class="tarjeta frente">
                         <h3 class="tarje">tarjeta</h3>
-                        <img src="{% static 'core/img/chip.png' %}" class="chip">
-                            <div class="banco">
-                                <input type="text" placeholder="nombre banco" required id="banco">
-                            </div>
+                        <img src="{% static 'img/chip.png' %}" class="chip">
+                        <div class="banco">
+                            <input type="text" placeholder="nombre banco" required id="banco" name="banco">
+                        </div>
 
-                            <div class="numero">
-                                <input type="text" placeholder="numero tarjeta" required  minlength="16" maxlength="16" id="numero">
-                            </div>
+                        <div class="numero">
+                            <input type="text" placeholder="numero tarjeta" required  minlength="16" maxlength="16" id="numero" name="numero">
+                        </div>
 
-                            <div class="valido">
-                                <h5 class="valido1">valida hasta:</h5>
+                        <div class="valido">
+                            <h5 class="valido1">valida hasta:</h5>
                             
-                                <div class="mes">
-                                    <input type="number" placeholder="mes" min="1" max="12" required id="mes"> 
-                                </div>
-
-                                <div class="año">
-                                    <input type="number" placeholder="año" min="21" max="50" required id="año">
-                                </div>
+                            <div class="mes">
+                                <input type="number" placeholder="mes" min="1" max="12" required id="mes" name="mes"> 
                             </div>
 
-                            <div class="titular">
-                                <input type="text" placeholder="nombre titular" required id="titular">
+                            <div class="año">
+                                <input type="number" placeholder="año" min="21" max="50" required id="año" name="año">
                             </div>
+                        </div>
+
+                        <div class="titular">
+                            <input type="text" placeholder="nombre titular" required id="titular"  name="titular">
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -83,9 +85,13 @@
                             <h5>firma autorizada: no es valida si no esta firmada</h5>
                             <div class="linea2"></div>
                             <div class="cvv1">
-                                <input type="text" placeholder="cvv" minlength="3" maxlength="3" required id="cvv">
+                                <input type="text" placeholder="cvv" minlength="3" maxlength="3" required id="cvv" name="cvv">
+                            </div>
+                            <div class="correo">
+                                <input type="email" placeholder="correo" required id="correo" name="correo">
                             </div>
                         </div>
+                        
                         <p class="texto">compra tus juegos favoritos de forma segura y confiable</p>
                     </div>
                 </div>
@@ -103,10 +109,10 @@
                 <h3>gamezone</h3>
                 <p>lleva tu experiencia de juego al siguiente nivel con gamezone</p>
                 <ul class="redes">
-                    <li><a href="#"><img src="{% static 'core/img/logos1.jpg' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'core/img/logos2.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'core/img/logos3.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'core/img/logos4.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos1.jpg' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos2.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos3.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos4.png' %}"></a></li>
                 </ul>
             </div>
 
@@ -118,6 +124,6 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" 
             integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" 
             crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
 </html>

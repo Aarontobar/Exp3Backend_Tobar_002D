@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>registro</title>
         {% load static %}
-        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'core/css/estilosRegistro.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estilosRegistro.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,11 +14,11 @@
        
     </head>
     <body>
-        
+        {% load static %}
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand navtext" href="#">
-                    <img src="{% static 'core/img/logo1.png' %}" alt="" width="75">gamezone
+                    <img src="{% static 'img/logo1.png' %}" alt="" width="75">gamezone
                 </a>
 
                 <button class="navbar-toggler"
@@ -48,9 +48,9 @@
                 <div class="contenedor">
                     <div class="panel">
                         <h1 class="titulo">crear una cuenta</h1>
-                        <p class="subtitulo">ya tengo cuenta <a href="inicio_sesion.html">iniciar sesion</a></p>
+                        <p class="subtitulo">ya tengo cuenta <a href="{% url 'inicio_sesion' %}">iniciar sesion</a></p>
 
-                        <form onsubmit="alert('cuenta creada')"  action="inicio_sesion.html" id="formulario">
+                        <form  action="{% url 'inicio_sesion' %}" id="formulario">
                             <div class="nombres">
                                 <div class="input">
                                     <label for="">nombre</label>
@@ -74,7 +74,7 @@
                                     <input type="password" minlength="7" required name="contraseña" id="contraseña">
                                 </div>
 
-                                <img src="{% static 'core/img/candado_cerrado.png' %}" id="boton">
+                                <img src="{% static 'img/candado_cerrado.png' %}" id="boton">
 
                                 <div id="btngenerar"> generar</div>
                             </div>
@@ -131,10 +131,10 @@
                 <h3>gamezone</h3>
                 <p>lleva tu experiencia de juego al proximo nivel con gamezone</p>
                 <ul class="redes">
-                    <li><a href="#"><img src="{% static 'core/img/logos1.jpg' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'core/img/logos2.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'core/img/logos3.png' %}"></a></li>
-                    <li><a href="#"><img src="{% static 'core/img/logos4.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos1.jpg' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos2.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos3.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos4.png' %}"></a></li>
                 </ul>
             </div>
 
@@ -148,7 +148,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" 
             integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" 
             crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script type="text/javascript">
 
             var boton = document.getElementById('boton');
@@ -159,11 +159,11 @@
             function mostrarcontraseña(){
                 if(input.type == "password"){
                     input.type = "text";
-                    boton.src="{% static 'core/img/candado_abierto.png' %}";
+                    boton.src="{% static 'img/candado_abierto.png' %}";
                 }
                 else{
                     input.type = "password";
-                    boton.src = "{% static 'core/img/candado_cerrado.png' %}";
+                    boton.src = "{% static 'img/candado_cerrado.png' %}";
                 }
             }
 

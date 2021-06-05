@@ -1,5 +1,5 @@
 """
-ASGI config for Exp3_Tobar_002D project.
+ASGI config for Exp3Backend_Tobar_002D project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Exp3_Tobar_002D.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Exp3Backend_Tobar_002D.settings')
 
 application = get_asgi_application()
