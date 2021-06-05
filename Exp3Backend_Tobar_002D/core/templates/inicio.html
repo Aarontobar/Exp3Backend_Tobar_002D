@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gamezone</title>
+        {% load static %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+         rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $(".btn").mouseover(function(){
+                    $(this).css("background-color", "#179bc6");
+                    $(this).css("color", "#000000");
+                });
+                $(".btn").mouseout(function(){
+                    $(this).css("background-color", "#000000");
+                    $(this).css("color","#ffffff");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand navtext" href="#">
+                    <img src="{% static 'core/img/logo1.png' %}" alt="" width="75">gamezone
+                </a>
+
+                <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio_sesion' %}">iniciar sesion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'core/img/carrusel1.jpg' %}" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/carrusel2.jpg' %}" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/carrusel3.jpg' %}" class="d-block w-100" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/carrulel4.jpg' %}" class="d-block w-100" alt="">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">siguiente</span>
+            </button>
+        </div>
+
+        <div id="separador">
+            <div class="content"></div>
+        </div>
+
+        <div id="texto">
+            <div class="container-md p-5">
+                <p>en gamezone encontraras juegos para todas las estaciones, todos los estados de animo todas tus fantasias y
+                   para todo tipo de usuario y aun te queda mucho por explorar en la tienda de juegos gamezone. desde tarjetas 
+                   de regalo hasta nuestra biblioteca de juegos donde encontraras todo lo que busques.</p>
+            </div>
+        </div>
+
+        <div id="aqui">
+            <div class="content">
+                <a href="#"><img src="{% static 'core/img/aqui1.png' %}"></a>
+            </div>
+        </div>
+
+        <div id="tarjetas">
+
+            <div class="container-md p-5">
+                <div class="row pt-3">
+                    <h3 class=" titulo pb-5 pt-1">top tarjetas de regalo</h3>
+                </div>
+
+                <div class="minis">
+                    <a href="#"><img src="{% static 'core/img/mini1.jpg' %}"></a>
+                    <a href="#"><img src="{% static 'core/img/mini2.png' %}"></a>
+                    <a href="#"><img src="{% static 'core/img/mini3.png' %}"></a>
+                </div>
+            </div>
+
+            <div class="container-md p-5">
+                <div class="row pt-3">
+                    <h3 class="titulo pb-5 pt-1">tarjetas de regalo mas vendidas</h3>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-4 g-4">
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-1">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/tarjeta1.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">tarjeta de regalo play station store</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/tarjeta2.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">tarjeta de regalo xbox store</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/tarjeta4.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">pavos fortnite</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                        <br>
+                                        <br>
+                                        <h5 class="card-title">revisa el store de hoy</h5>
+                                        <a href="{% url 'api' %}" class="btn btn-dark">store</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/tarjeta3.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">tarejta de regalo steam</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="separador">
+            <div class="content"></div>
+        </div>
+
+        <div id="juegos">
+            <div class="container-md p-5">
+                <div class="row pt-3">
+                    <h3 class="titulo pb-5 pt-1">juegos mas vendidos</h3>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-4 g-4">
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/xbox1.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">call of duty black ops cold war</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/play1.jpg' %}" class="card-img-top img-fluid " alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">god of war</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/xbox2.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">assassins creed valhala</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card text-center">
+                            <div class="row row-cols-2 row-col-sm-2 row-cols-md-1 g-6">
+                                <div class="col-sm-4 col-6">
+                                    <img src="{% static 'core/img/play2.jpeg' %}" class="card-img-top img-fluid" alt="">
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">marvel's spider-man Remasterisado(ps5)</h5>
+                                        <a href="{% url 'comprar' %}" class="btn btn-dark">comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <h3>gamezone</h3>
+                <p>lleva tu experienca de juego al proximo nivel con gamezone</p>
+                <ul class="redes">
+                    <li><a href="#"><img src="{% static 'core/img/logos1.jpg' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'core/img/logos2.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'core/img/logos3.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'core/img/logos4.png' %}"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-abajo">
+                <p>copyright &copy;2021. diseñado por Aaron Tobar</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>holacomoestas
+    </body>
+</html>

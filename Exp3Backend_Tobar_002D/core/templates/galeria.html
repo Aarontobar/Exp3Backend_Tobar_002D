@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>galeria</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/estilos2.css' %}"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand navtext" href="#">
+                    <img src="{% static 'core/img/logo1.png' %}" alt="" width="75px">gamezone
+                </a>
+
+                <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">galeria</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio_sesion' %}">iniciar session</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="container-fluid p-5">
+            <div class="card">
+                <div class="caja">
+                    <div class="cajaimg">
+                        <img src="{% static 'core/img/galeria1.jpg' %}">
+                    </div>
+                    <div class="contenidocaja">
+                        <div>
+                            <h2>call of duty: black ops cold war</h2>
+                            <p>call of duty black ops cold war lleva a los jugadores al corazon de la volatil batalla geopolitica de la guerra fria, donde nada es lo que parece</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="caja">
+                    <div class="cajaimg">
+                        <img src="{% static 'core/img/galeria2.jpg' %}">
+                    </div>
+                    <div class="contenidocaja">
+                        <div>
+                            <h2>horizon zero dawn</h2>
+                            <p>combiertete en la habilidosa cazadora Aloy y explora un mundo exuberante habitado por misteriosas criaturas mecanizadas, en un nuevo y emocionanate juego de rol, exclusivo de playstation 4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="caja">
+                    <div class="cajaimg">
+                        <img src="{% static 'core/img/galeria3.jpg' %}">
+                    </div>
+                    <div class="contenidocaja">
+                        <div>
+                            <h2>assassins creed valhalla</h2>
+                            <p>en assassins creed valhalla, conviertete en Eivor, un legendario saqueador vikingo en busca de la gloria. explora un mundo abierto, dinamico y hermoso en el brutal contexto de inglaterra de la edad media</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="caja">
+                    <div class="cajaimg">
+                        <img src="{% static 'core/img/galeria4.jpg' %}">
+                    </div>
+                    <div class="contenidocaja">
+                        <div>
+                            <h2>grand theft auto: 5</h2>
+                            <p>explora el emosionante mundo de los santos y blaine county en la experiencia de gta5 definitiva, con gran cantidad de avances y mejoras tecnicas tanto para los jugadores nuevos como para los habituales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="caja">
+                    <div class="cajaimg">
+                        <img src="{% static 'core/img/galeria5.jpg' %}">
+                    </div>
+                    <div class="contenidocaja">
+                        <div>
+                            <h2>tom clancy's: rainbow six siege</h2>
+                            <p>es hora de agruparse y tomar por asalto la explosiva accion pvp de 5v5. tom calcy's rainbow six siege cuneta con una enorme alineacion de operadores especializados, cada uno con dispositivos capases de cambiar el rumbo del juego y ayudar a tu equipo a conseguir la victoria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="caja">
+                    <dic class="cajaimg">
+                        <img src="{% static 'core/img/galeria6.png' %}">
+                    </dic>
+                    <div class="contenidocaja">
+                        <div>
+                            <h2>ark survival evolved</h2>
+                            <p>varado en las costas de una isla misteriosa, tendras que aprender a sivrevivir. usa tu astucia para matar o domar a las criaturas primitivas que rrecorren estas tierras, y halla a otros jugadores para sovrevivir,dominar...y escapar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <h3>gamezone</h3>
+                <p>lleva tu experiencia de juego al proximo nivel con gamezone</p>
+                <ul class="redes">
+                    <li><a href="#"><img src="{% static 'core/img/logos1.jpg' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'core/img/logos2.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'core/img/logos3.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'core/img/logos4.png' %}"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-abajo">
+                <p>copyright &copy;2021. diseñado por Aaron Tobar</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" 
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" 
+        crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+body{
+    width:100%;
+    height: 100%;
+}
+
+.navbar{
+    background:linear-gradient(45deg,#fe0061,#ff893b);
+}
+
+@keyframes animate{
+    0%,100%{
+        filter:hue-rotate(0deg);
+    }
+    50%{
+        filter:hue-rotate(360deg);
+    }
+}
+
+.navtext{
+    font-family: 'Press Start 2P', cursive;
+}
+
+li{
+    font-size: 16px;
+}
+
+#nosotros{
+    background: linear-gradient(45deg,#333333,#666666);
+    color: #ffffff;
+}
+
+#nosotros p{
+    font-size: 16px;
+    word-spacing: 2px;
+}
+
+#xd{
+    background: url(../img/fondo4.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+
+}
+
+.fot{
+    max-width:500px;
+    max-height:500px;
+}
+
+#buenosdias{
+    color: #ffffff;
+}
+
+#separador .content{
+    background: linear-gradient(45deg,#fe0061,#ffeb3b);
+    animation: animate 5s linear infinite;
+    width: 100%;
+    height:50px;
+}
+
+.card{
+    background: #ef005b;
+    border-radius: 14px;
+}
+
+.card img{
+    border-radius: 14px;
+}
+
+.card p{
+    font-size: 16px;
+    word-spacing: 2px;
+}
+
+footer{
+    background: #202020;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.redes{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.redes li{
+    margin:0 10px;
+}
+
+.redes img{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.footer-abajo{
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-abajo p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}

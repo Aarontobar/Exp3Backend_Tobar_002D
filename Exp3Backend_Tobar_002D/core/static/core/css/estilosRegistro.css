@@ -1,0 +1,224 @@
+.navtext{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.navbar{
+    background:linear-gradient(45deg,#fe0061,#ff893b);
+}
+
+li{
+    font-size: 16px;
+}
+
+
+#container p {
+    max-width: 600px;
+}
+
+.fondo {
+    background-image: url(../img/registro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    grid-column: 7/12;
+}
+
+.panel {
+    padding: 24px;
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitulo {
+    margin: 0;
+    font-size: 12px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.input {
+    margin-bottom: 20px;
+}
+
+.input label {
+    font-size: 12px;
+    display: block;
+}
+
+.input input {
+    border: none;
+    border-bottom: 1px solid;
+    width: 100%;
+    outline: none;
+    background: transparent;
+}
+
+.nombres {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.cumpleaños-titulo {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.cumple label {
+    font-size: 12px;
+    display: block;
+}
+
+.meses select{
+    background: transparent;
+}
+
+.cumple select {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid;
+    height: 28px;
+    padding: 0;
+}
+
+.cumpleaños_inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+form button {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: 10px 24px;
+    color: #ffffff;
+    background-color: #fe0061;
+    border-radius: 8px;
+}
+
+#boton {
+    cursor: pointer;
+    width: 30px;
+}
+
+#btngenerar {
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+    background: #fe0061;
+    border-radius: 8px;
+    width:100%;
+    margin-bottom: 20px;
+    padding: 10px 25px;
+}
+
+#btngenerar:active{
+    background: #000;
+}
+
+.contra{
+    display: grid;
+    grid-template-columns: 4fr 1fr 2fr;
+    gap: 2px;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 660px) {
+    .contenedor {
+        grid-column: 1 / span 13;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    #container {
+        padding: 0;
+    }
+
+    .panel {
+        height: 0;
+        border-radius: 0;
+    }
+}
+
+footer{
+    background: #202020;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.redes{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.redes li{
+    margin:0 10px;
+}
+
+.redes img{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.footer-abajo{
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-abajo p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}

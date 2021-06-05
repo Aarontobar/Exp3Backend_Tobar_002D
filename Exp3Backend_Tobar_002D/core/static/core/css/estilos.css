@@ -1,0 +1,177 @@
+.navtext{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.navbar{
+    background:linear-gradient(45deg,#fe0061,#ff893b);
+}
+
+li{
+    font-size: 16px;
+}
+
+@keyframes animate{
+    0%,100%{
+        filter:hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.card-body{
+    height: 100%;
+    width: 100%;
+}
+
+.card-body a{
+    margin-bottom: 10px;
+}
+
+.btn{
+    border: none;
+    padding: 7px 20px;
+    margin-bottom: 10px;
+}
+
+#separador{
+    background: linear-gradient(45deg,#fe0061,#ffeb3b);
+    animation: animate 5s linear infinite;
+    width: 100%;
+    position: relative;
+}
+
+#aqui{
+    width: 100%;
+    position: relative;
+}
+
+#aqui img{
+    width: 100%;
+
+}
+
+#separador .content{
+    width: 100%;
+    height: 50px;
+}
+
+#texto{
+    text-align:center;
+    background:linear-gradient(45deg,#333333,#666666);
+    color: #ffffff;
+}
+
+#texto p{
+    font-size: 16px;
+    word-spacing: 2px;
+}
+
+.card{
+    background: linear-gradient(45deg,#fe0061,#ff893b);
+    border-radius: 14px;
+    max-width: 480px;
+    height: 100%;
+}
+
+.card img{
+    border-radius: 14px;
+}
+
+.card-body{
+    margin-bottom: 10px;
+}
+
+.card-body .btn{
+    margin-bottom: 0%;
+}
+
+.card-title{
+    font-size: 20px;
+}
+
+.minis{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+}
+
+.minis img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+#tarjetas{
+    background: url(../img/inicio.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top:-20px;
+}
+
+#tarjetas h3{
+    color: #ffffff
+}
+
+#juegos{
+    background: url(../img/inicio2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#juegos h3{
+    color: #ffffff;
+}
+
+
+footer{
+    background: #202020;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.redes{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.redes li{
+    margin:0 10px;
+}
+
+.redes img{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.footer-abajo{
+    text-align: center;
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    color: #ffffff;
+}

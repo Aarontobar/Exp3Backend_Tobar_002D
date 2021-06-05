@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.navtext{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.navbar{
+    background: linear-gradient(45deg,#fe0061,#ff893b);
+}
+
+li{
+    font-size: 16px;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    min-height: 120vh;
+    background-image: url(../img/comprar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card{
+    position: relative;
+    width: 504px;
+    height: 314px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    background:transparent;
+}
+
+.card .tarjeta{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255, 0.05);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+}
+
+.card .tarjeta.frente::before{
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: #ffff00;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.card .tarjeta.frente::after{
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    right: 80px;
+    width: 60px;
+    height: 60px;
+    background: #ff0000;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.card .tarjeta.frente .tarje{
+    position: absolute;
+    left: 40px;
+    top: 30px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.card .tarjeta.frente .chip{
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    max-width: 64px;
+}
+
+input::placeholder{
+    color: #000000;
+}
+
+.banco{
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    color: #000000;
+}
+
+.numero{
+    position: absolute;
+    bottom: 130px;
+    left: 40px;
+    color: #000000;
+}
+
+.valido{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    bottom: 90px;
+    left: 40px;
+    color: #000000;
+    justify-content: center;
+    align-items: center;
+}
+
+.valido1{
+    display: flex;
+    color: #000000;
+    font-weight: 100;
+    font-size: 18px;
+}
+
+.titular{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    background: transparent;
+}
+
+.banco input{
+    font-weight: 500;
+    font-style: italic;
+    font-size: 24px;
+    color: #000000;
+}
+
+
+
+#numero{
+    color: #000000;
+    font-weight: 500;
+    letter-spacing: 6px;
+    font-size: 18px;
+    text-shadow: 0 2px 1px #0005;
+    font-family: 'Orbitron', sans-serif;
+    width: 120%;
+}
+
+.mes{
+    padding-left: 10px;
+    padding-right: 0;
+}
+
+.mes input{
+    color: #000000;
+    width: 75%;
+}
+
+.año{
+    padding-left: 0;
+}
+
+.año input{
+    color: #000000;
+    width: 75%;
+}
+
+.titular input{
+    color: #000000;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 2px;
+    width: 150%;
+}
+
+.linea{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 60px;
+    background: #000000;
+}
+
+.cvv{
+    position: absolute;
+    top: 120px;
+    left: 30px;
+}
+
+.cvv h5{
+    color: #000000;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.linea2{
+    position: relative;
+    width: 400px;
+    height: 40px;
+    background: #ffffff;
+    margin-top: 5px;
+}
+
+.cvv1{
+    position: relative;
+    background: #ccc;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    top: -35px;
+    left: 395px;
+}
+
+.cvv1 input{
+    width: 100%;
+    color: #000000;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.texto{
+    position:absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    color: #000000;
+    font-size: 10px;
+    line-height: 1.4em;
+    font-weight: 300;
+}
+
+.botones button{
+    display: block;
+    margin: 0 auto;
+    padding: 10px 24px;
+    border: none;
+    color: #000000;
+    background-color: #fe0061;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.botones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 660px){
+    .card{
+        width: 450px;
+        height: 300px;
+    }
+
+    .linea2{
+        width: 380px;
+    }
+
+    .cvv1{
+        left: 355px;
+    }
+}
+
+footer{
+    background: #202020;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.redes{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.redes li{
+    margin:0 10px;
+}
+
+.redes img{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.footer-abajo{
+    background: #000;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-abajo p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
