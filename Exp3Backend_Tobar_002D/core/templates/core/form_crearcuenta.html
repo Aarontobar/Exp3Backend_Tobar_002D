@@ -36,8 +36,8 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
-                        <li class="nav-item"><a class="nav-link" href="registro.html">registrarse</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio_sesion' %}">iniciar session</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'form_cuenta' %}">registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">iniciar session</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,74 +48,44 @@
                 <div class="contenedor">
                     <div class="panel">
                         <h1 class="titulo">crear una cuenta</h1>
-                        <p class="subtitulo">ya tengo cuenta <a href="{% url 'inicio_sesion' %}">iniciar sesion</a></p>
+                        <p class="subtitulo">ya tengo cuenta <a href="{% url 'login' %}">iniciar sesion</a></p>
 
-                        <form  action="{% url 'inicio_sesion' %}" id="formulario">
+                        <form  method="POST" action="#" id="formulario">
+                            {%csrf_token%}
+                            <div class="input">
+                                {{cuenta_form.username.label}}
+                                {{cuenta_form.username}}
+                            </div>
+
                             <div class="nombres">
                                 <div class="input">
-                                    <label for="">nombre</label>
-                                    <input type="text" required name="nombre" id="nombre">
+                                    {{cuenta_form.first_name.label}}
+                                    {{cuenta_form.first_name}}
                                 </div>
 
                                 <div class="input">
-                                    <label for="">apellido</label>
-                                    <input type="text" required name="apellido" id="apellido">
+                                    {{cuenta_form.last_name.label}}
+                                    {{cuenta_form.last_name}}
                                 </div>
                             </div>
 
                             <div class="input">
-                                <label for="">email</label>
-                                <input type="email" required name="email" id="email">
+                                {{cuenta_form.email.label}}
+                                {{cuenta_form.email}}
                             </div>
 
                             <div class="contra">
                                 <div class="input">
-                                    <label for="">contraseña</label>
-                                    <input type="password" minlength="7" required name="contraseña" id="contraseña">
+                                    {{cuenta_form.password.label}}
+                                    {{cuenta_form.password}}
                                 </div>
 
                                 <img src="{% static 'img/candado_cerrado.png' %}" id="boton">
 
                                 <div id="btngenerar"> generar</div>
                             </div>
-
-                            <div class="cumpleaños">
-                                <h6 class="cumpleaños-titulo">fecha de cumpleaños</h6>
-
-                                <div class="cumpleaños_inputs">
-                                    <div class="cumple">
-                                        <div class="meses">
-                                            <label for="mes">mes</label>
-
-                                            <select name="mes" id="mes">
-                                                <option value="1">Enero</option>
-                                                <option value="2">febrero</option>
-                                                <option value="3">Marzo</option>
-                                                <option value="4">Abril</option>
-                                                <option value="5">Mayo</option>
-                                                <option value="6">Junio</option>
-                                                <option value="7">Julio</option>
-                                                <option value="8">Agosto</option>
-                                                <option value="9">Septiembre</option>
-                                                <option value="10">Octubre</option>
-                                                <option value="11">Noviembre</option>
-                                                <option value="12">Diciembre</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="dia">dia</label>
-                                        <input type="number" required name="dia" id="dia" min="1" max="31">
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="año">año</label>
-                                        <input type="number" required name="año" id="año" min="1900" max="2021">
-                                    </div>
-                                </div>
-                            </div>
-
+                            <br>
+                            <br>
                             <div class="botones">
                                 <button type="submit">crear cuenta</button>
                                 <button type="reset">borrar</button>
@@ -196,7 +166,7 @@
                         },
                         contraseña: "required",
                         dia: "required",
-                        año: "required"
+                        anno: "required"
                         },
                     messages: {
                         nombre: {
@@ -205,11 +175,11 @@
                         apellido: {
                             required: 'ingrese apellido'
                         },
-                        email: {
+                        correo: {
                             required: 'ingrese su correo',
                             email: 'formato no valido'
                         },
-                        contraseña: {
+                        contaseña: {
                             required: 'ingrese contraseña',
                             minlength: 'pocos caracteres'
                         },
@@ -221,7 +191,7 @@
                             min: 'dia no corresponde',
                             max: 'dia no corresponde'
                         },
-                        año: {
+                        anno: {
                             required: 'digite año',
                             min: 'año no corresponde',
                             max: 'año no corresponde'

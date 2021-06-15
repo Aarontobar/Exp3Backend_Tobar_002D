@@ -53,8 +53,8 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">registrarse</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">iniciar session</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'form_cuenta' %}">registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">iniciar session</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,24 +65,29 @@
                 <div class="contenedor">
                     <div class="panel">
                         <h1 class="titulo">iniciar sesion</h1>
-                        <p class="subtitulo">no tengo cuenta<a href="{% url 'registro' %}">crear cuenta</a></p>
+                        <p class="subtitulo">no tengo cuenta<a href="{% url 'form_cuenta' %}">crear cuenta</a></p>
+                        <form id="formulario" action="#" method="POST">
+                            {% csrf_token %}
 
-                        <form id="formulario" action="{% url 'inicio' %}">
+                            {% if form.errors %}
+                                <p style="color: red; font-size: 12px">usuario y/o contraseña incorrectos</p>
+                            {% endif %}
+
                             <div class="input">
                                 <label for="">usuario</label>
-                                <input type="text" name="usuario" required id="usuario">
+                                {{form.username}}
                             </div>
 
                             <div class="contras">
                                 <div class="input">
                                     <label for="">cotraseña</label>
-                                    <input type="password" name="contraseña" required id="contraseña">
+                                    {{ form.password }}
                                 </div>
 
                                 <img src="{% static 'img/candado_cerrado.png' %}" id="boton">
                             </div>
 
-                            <button type="submit">iniciar sesion</button>
+                            <button type="submit" value="login">iniciar sesion</button>
                         </form>
                     </div>
                 </div>
@@ -113,7 +118,7 @@
         <script>
 
             var boton = document.getElementById('boton');
-            var input = document.getElementById('contraseña');
+            var input = document.getElementById('password');
 
             boton.addEventListener('click',mostrar);
 

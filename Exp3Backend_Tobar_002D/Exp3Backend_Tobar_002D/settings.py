@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(0ee+s233b*haapk0goju*sf$7^ole&itjl4n((7@*^c0@6p%5'
+SECRET_KEY = 'django-insecure-fb)r86l)4#h8f%7)*83+n_g**-w2ycl8-@bfn*r$z*-9sp*yhe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': '127.0.0.1:1521/xe',
-        'USER': 'c##proyecto',
+        'USER': 'c##programacionweb',
         'PASSWORD': '1234',
         'TEST': {
             'USER': 'default_test',
@@ -128,8 +128,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    '/core/static',
+    'core/static',
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'login'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
