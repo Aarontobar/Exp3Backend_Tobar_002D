@@ -52,6 +52,9 @@
 
                         <form  method="POST" action="#" id="formulario">
                             {%csrf_token%}
+                            {% if form.errors %}
+                                <p style="color: red; font-size: 12px">usuario y/o contraseña incorrectos</p>
+                            {% endif %}
                             <div class="input">
                                 {{cuenta_form.username.label}}
                                 {{cuenta_form.username}}
@@ -76,14 +79,18 @@
 
                             <div class="contra">
                                 <div class="input">
-                                    {{cuenta_form.password.label}}
-                                    {{cuenta_form.password}}
-                                </div>
+                                    <label for="">contraseña</label>
+                                    {{cuenta_form.password1}}
+                                </div>  
 
                                 <img src="{% static 'img/candado_cerrado.png' %}" id="boton">
 
                                 <div id="btngenerar"> generar</div>
                             </div>
+                            <div class="input">
+                                    <labes for="">confirme contraseña</labes>
+                                    {{cuenta_form.password2}}
+                                </div>
                             <br>
                             <br>
                             <div class="botones">
@@ -122,17 +129,20 @@
         <script type="text/javascript">
 
             var boton = document.getElementById('boton');
-            var input = document.getElementById('contraseña');
+            var input = document.getElementById('id_password1');
+            var input2 = document.getElementById('id_password2');
 
             boton.addEventListener('click', mostrarcontraseña);
 
             function mostrarcontraseña(){
                 if(input.type == "password"){
                     input.type = "text";
+                    input2.type = "text";
                     boton.src="{% static 'img/candado_abierto.png' %}";
                 }
                 else{
                     input.type = "password";
+                    input2.type = "password";
                     boton.src = "{% static 'img/candado_cerrado.png' %}";
                 }
             }
@@ -151,50 +161,44 @@
                     contraseñas += chars.substring(numerorandom,numerorandom+1);
                 }
 
-                document.getElementById('contraseña').value = contraseñas;
+                document.getElementById('id_password1').value = contraseñas;
+                document.getElementById('id_password2').value = contraseñas;
             }
         </script>
          <script>
             $(function(){
                 $("#formulario").validate({
                     rules: {
-                        nombre: "required",
-                        apellido: "required",
+                        username: "required",
+                        first_name: "required",
+                        last_name: "required",
                         email: {
                             required: true,
                             email: true
                         },
-                        contraseña: "required",
-                        dia: "required",
-                        anno: "required"
+                        password1: "required",
+                        password2: "required",
                         },
                     messages: {
-                        nombre: {
+                        username: {
+                            required: 'ingrese su nombre de usuario'
+                        },
+                        first_name: {
                             required: 'ingrese nombre'
                         },
-                        apellido: {
+                        last_name: {
                             required: 'ingrese apellido'
                         },
-                        correo: {
+                        email: {
                             required: 'ingrese su correo',
                             email: 'formato no valido'
                         },
-                        contaseña: {
+                        password1: {
                             required: 'ingrese contraseña',
                             minlength: 'pocos caracteres'
                         },
-                        mes: {
-                            required: 'seleccione'
-                        },
-                        dia: {
-                            required: 'digite dia',
-                            min: 'dia no corresponde',
-                            max: 'dia no corresponde'
-                        },
-                        anno: {
-                            required: 'digite año',
-                            min: 'año no corresponde',
-                            max: 'año no corresponde'
+                        password2: {
+                            required: 'reingrese contraseña'
                         }
                     }
                 });

@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import cuentaForm
+from django.contrib.auth.models import Group
 from .models import *
 
 # Create your views here.
@@ -18,8 +19,8 @@ def inicio(request):
                 name= request.user.first_name,
                 email= request.user.email,
             )
-        customer = request.user.customer
-        orden, created = Orden.objects.get_or_create(customer=customer, completo=False)
+        custom = request.user.customer
+        orden, created = Orden.objects.get_or_create(customer=custom, completo=False)
         items = orden.ordenitem_set.all()
         carritoItems = orden.getItemsCarrito
     else:
@@ -43,17 +44,19 @@ def registro(request):
 def inicio_sesion(request):
     return render(request, 'inicio_sesion.html')
 
-def comprar(request):
-    return render(request, 'comprar.html')
-
 def api(request):
     return render(request, 'api.html')
 
 def form_cuenta(request):
+
     if request.method=='POST':
         cuenta_form = cuentaForm(request.POST)
         if cuenta_form.is_valid():
+            user = cuenta_form.save()
             cuenta_form.save()
+            grupo= Group.objects.get(name='clientes')
+            user.groups.add(grupo)
+            return redirect('login')
     else:
         cuenta_form=cuentaForm()
     return render(request, 'core/form_crearcuenta.html',{'cuenta_form':cuenta_form})
@@ -121,3 +124,17 @@ def ordenar(request):
         codigopostal=data['envio']['codigopostal']
     )
     return JsonResponse('pago completo', safe=False)
+
+def usuario(request):
+    grupos= Group.objects.get(name='clientes')
+    grupo= request.user.groups.get()
+    if grupo==grupos:
+        cliente=True
+    else:
+        cliente=False
+    customer = request.user.customer
+    direcciones = direccion.objects.filter(customer=customer)
+    
+
+    context= {'direcciones': direcciones, 'cliente':cliente,'grupo':grupo,'grupos':grupos}
+    return render(request, 'usuario.html',context)

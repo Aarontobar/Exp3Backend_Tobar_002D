@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gamezone</title>
+        {% load static %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+         rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/estilosusuario.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <style>
+            #carrito{
+                width: 25px;
+                display: inline-block;
+                margin-left: 15px;
+            }
+
+            .fondo{
+                background-image: url("{% static 'img/usuariofondo.jpg' %}");
+                background-repeat: no-repeat;
+                background-size: cover;
+                min-height: 150vh;
+            }
+
+            .container{
+                margin: 0 auto;
+                padding: 24px;
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: 24px;
+                align-items: center;
+            }
+
+            .contenedor{
+                grid-column: 1/13;
+            }
+
+            .panel{
+                padding: 24px;
+                border-radius: 8px;
+                backdrop-filter: blur(20px);
+            }
+
+            .cart-row{
+                display: flex;
+                align-items: flex-stretch;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ececec;
+            }
+        </style>
+    </head>
+    <body>
+        {% load static %}
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand navtext" href="#">
+                    <img src="{% static 'img/logo1.png' %}" alt="" width="75">gamezone
+                </a>
+
+                <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">{{ user.username }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">
+                            <img id="carrito" src="{% static 'img/carritoIcono.png' %}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="fondo">
+            <div class="container">
+                <div class="contenedor">
+                    <div class="panel">
+                        {% if cliente %}
+                        <h5>mis ordenes</h5>
+                        <div class="cart-row">
+                            <div style="flex: 2;"><strong>orden</strong></div>
+                            <div style="flex: 2;"><strong>direccion</strong></div>
+                            <div style="flex: 2;"><strong>ciudad</strong></div>
+                            <div style="flex: 2;"><strong>region</strong></div>
+                        </div>
+                        <hr>
+                        
+                        {% for ordenes in direcciones %}
+                        <div class="cart-row">
+                            <div style="flex: 2;"><strong>{{ordenes.orden}}</strong></div>
+                            <div style="flex: 2;"><strong>{{ordenes.direccion}}</strong></div>
+                            <div style="flex: 2;"><strong>{{ordenes.ciudad}}</strong></div>
+                            <div style="flex: 2;"><strong>{{ordenes.region}}</strong></div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                            <h5>buenos dias {{user.username}} que haremos hoy</h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <h3>gamezone</h3>
+                <p>lleva tu experienca de juego al proximo nivel con gamezone</p>
+                <ul class="redes">
+                    <li><a href="#"><img src="{% static 'img/logos1.jpg' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos2.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos3.png' %}"></a></li>
+                    <li><a href="#"><img src="{% static 'img/logos4.png' %}"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-abajo">
+                <p>copyright &copy;2021. diseñado por Aaron Tobar</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>holacomoestasmellamojuanita
+    </body>
+</html>

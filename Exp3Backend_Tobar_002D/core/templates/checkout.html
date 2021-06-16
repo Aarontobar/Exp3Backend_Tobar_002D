@@ -175,8 +175,9 @@
                                 </div>
                                 <br>
                                     <div class="box-elemnt hidden panel" id="info-pago">
-                                        <small>opcion de pago</small>
-                                        <button id="pagar">pagar</button>
+                                        <h5>opcion de pago</h5>
+                                        <div id="paypal-button-container"></div>
+                                        <button id="pagar">test de pago</button>
                                     </div>
                                 <br>
                             </div>
@@ -223,6 +224,33 @@
             </div>
         </footer>
 
+        <script src="https://www.paypal.com/sdk/js?client-id=AahVDzWRyWPfsoWwvY96pY8e2n5Xct0Yp4sG8nBSxPJb0UP1li7yaTbuMNAu-K0-lLNcA_SBxNeNjaRn&currency=USD"></script>
+
+        <script>
+            // Render the PayPal button into #paypal-button-container
+            paypal.Buttons({
+    
+                // Set up the transaction
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '88.44'
+                            }
+                        }]
+                    });
+                },
+    
+                // Finalize the transaction
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        enviarDatos()
+                    });
+                }
+    
+    
+            }).render('#paypal-button-container');
+        </script>
         <script>
             var total= '{{orden.getTotalCarrito}}'
         
