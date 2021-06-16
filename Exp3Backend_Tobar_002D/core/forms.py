@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import *
 
 class cuentaForm(UserCreationForm):
 
@@ -38,6 +39,38 @@ class cuentaForm(UserCreationForm):
                 attrs={
                     'id': 'email',
                     'name': 'email'
+                }
+            )
+        }
+
+class productoform(ModelForm):
+
+    class Meta:
+        model= producto
+        fields = ['nombre', 'stock', 'precio', 'foto',]
+        labels ={
+            'nombre': 'Ingrese nombre',
+            'stock': 'Ingrese valor para stock',
+            'precio': 'Ingrese precio',
+            'foto': 'Seleccione imagen'
+        }
+        widgets ={
+            'nombre': forms.TextInput(
+                attrs={
+                    'id': 'nombre',
+                    'name': 'nombre'
+                }
+            ),
+            'stock': forms.NumberInput(
+                attrs ={
+                    'id': 'stock', 
+                    'name': 'stock'
+                }
+            ),
+            'precio': forms.NumberInput(
+                attrs={
+                    'id': 'precio',
+                    'name': 'precio'
                 }
             )
         }

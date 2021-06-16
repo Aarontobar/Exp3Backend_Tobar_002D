@@ -23,18 +23,20 @@
                 background-image: url("{% static 'img/fotofoto.jpg' %}");
                 background-repeat: no-repeat;
                 background-size: cover;
-                min-height: 150vh;
+                min-height: 50vh;
             }
 
             .container{
                 margin: 0 auto;
                 padding: 24px;
                 display: grid;
+                grid-template-columns: repeat(12,1fr);
                 gap: 24px;
                 align-items: center;
             }
 
             .contenedor{
+                grid-column: 5/12;
             }
 
             .panel{
@@ -62,6 +64,7 @@
                 }
     
                 .contenedor{
+                    grid-column: 1/13;
                     width: 100%;
                     padding: 0;
                 }
@@ -73,6 +76,23 @@
                 .imagen{
                     width: 50px;
                 }
+            }
+
+            .input{
+                margin-bottom: 20px;
+            }
+
+            .input label{
+                font-size: 12px;
+                display: block;
+            }
+
+            .input input{
+                border: none;
+                border-bottom: 1px solid;
+                width: 100%;
+                outline: none;
+                background: transparent;
             }
         </style>
     </head>
@@ -113,49 +133,31 @@
             <div class="container">
                 <div class="contenedor">
                     <div class="panel">
-                        {% if cliente %}
-                        <h5>mis ordenes</h5>
-                        <div class="cart-row">
-                            <div style="flex: 2;"><strong>orden</strong></div>
-                            <div style="flex: 2;"><strong>direccion</strong></div>
-                            <div style="flex: 2;"><strong>ciudad</strong></div>
-                            <div style="flex: 2;"><strong>region</strong></div>
-                        </div>
-                        <hr>
-                        
-                        {% for ordenes in direcciones %}
-                        <div class="cart-row">
-                            <div style="flex: 2;"><strong>{{ordenes.orden}}</strong></div>
-                            <div style="flex: 2;"><strong>{{ordenes.direccion}}</strong></div>
-                            <div style="flex: 2;"><strong>{{ordenes.ciudad}}</strong></div>
-                            <div style="flex: 2;"><strong>{{ordenes.region}}</strong></div>
-                        </div>
-                        {% endfor %}
-                        {% else %}
-                            <h5>buenos dias {{user.username}}</h5>
-                            <div class="cart-row">
-                                <div style="flex: 2;"><strong>imagen</strong></div>
-                                <div style="flex: 2;"><strong>nombre</strong></div>
-                                <div style="flex: 1;"><strong>stock</strong></div>
-                                <div style="flex: 1;"><strong>precio</strong></div>
-                                <div style="flex: 2;"><strong>botones</strong></div>
-                            </div>
+                        <form method="POST" action="" id="formulario" enctype="multipart/form-data">
+                            {% csrf_token %}
 
-                            {% for producto in productos %}
-                                <div class="cart-row">
-                                    <div style="flex: 2;"><img src="{{producto.fotoURL}}" class="imagen"></div>
-                                    <hr>
-                                    <div style="flex: 2;"><strong>{{producto.nombre}}</strong></div>
-                                    <div style="flex: 1;"><strong>{{producto.stock}}</strong></div>
-                                    <div style="flex: 1;"><strong>{{producto.precio}}</strong></div>
-                                    <div style="flex: 2;">
-                                        <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="{% url 'eliminar' producto.id %}">¡eliminar!</a>
-                                        <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="">modificar</a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                            <a class="btn btn-outline-light" href="{% url 'crearProducto' %}">agregar producto</a>
-                        {% endif %}
+                            <div class="input">
+                                {{form.nombre.label}}
+                                {{form.nombre}}
+                            </div>
+                            <br>
+                            <div class="input">
+                                {{form.stock.label}}
+                                {{form.stock}}
+                            </div>
+                            <br>
+                            <div class="input">
+                                {{form.precio.label}}
+                                {{form.precio}}
+                            </div>
+                            <br>
+                            <div class="input">
+                                {{form.foto.label}}
+                                {{form.foto}}
+                            </div>
+                            <br>
+                            <button class="btn btn-outline-dark" type="submit">agregar</button>
+                        </form>
                     </div>
                 </div>
             </div>

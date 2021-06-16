@@ -3,7 +3,7 @@ from django.http import JsonResponse
 import json
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
-from .forms import cuentaForm
+from .forms import *
 from django.contrib.auth.models import Group
 from .models import *
 
@@ -144,3 +144,15 @@ def eliminar(request, id):
     productos = producto.objects.get(id=id)
     productos.delete()
     return redirect('usuario')
+
+def crearProducto(request):
+
+    if request.method=='POST':
+        form = productoform(request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('usuario')
+    else:
+        form=productoform()
+
+    return render(request, 'core/form_producto.html', {'form':form})
