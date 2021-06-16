@@ -20,7 +20,7 @@
             }
 
             .fondo{
-                background-image: url("{% static 'img/usuariofondo.jpg' %}");
+                background-image: url("{% static 'img/fotofoto.jpg' %}");
                 background-repeat: no-repeat;
                 background-size: cover;
                 min-height: 150vh;
@@ -30,13 +30,11 @@
                 margin: 0 auto;
                 padding: 24px;
                 display: grid;
-                grid-template-columns: repeat(12, 1fr);
                 gap: 24px;
                 align-items: center;
             }
 
             .contenedor{
-                grid-column: 1/13;
             }
 
             .panel{
@@ -51,6 +49,30 @@
                 padding-bottom: 10px;
                 margin-bottom: 10px;
                 border-bottom: 1px solid #ececec;
+            }
+
+            .imagen{
+                width: 100px;
+                border-radius: 8px;
+            }
+
+            @media only screen and (max-width: 660px){
+                .container{
+                    padding:0;
+                }
+    
+                .contenedor{
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .panel{
+                    width:100%;
+                }
+
+                .imagen{
+                    width: 50px;
+                }
             }
         </style>
     </head>
@@ -74,7 +96,7 @@
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#">inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a></li>
@@ -110,7 +132,29 @@
                         </div>
                         {% endfor %}
                         {% else %}
-                            <h5>buenos dias {{user.username}} que haremos hoy</h5>
+                            <h5>buenos dias {{user.username}}</h5>
+                            <div class="cart-row">
+                                <div style="flex: 2;"><strong>imagen</strong></div>
+                                <div style="flex: 2;"><strong>nombre</strong></div>
+                                <div style="flex: 1;"><strong>stock</strong></div>
+                                <div style="flex: 1;"><strong>precio</strong></div>
+                                <div style="flex: 2;"><strong>botones</strong></div>
+                            </div>
+
+                            {% for producto in productos %}
+                                <div class="cart-row">
+                                    <div style="flex: 2;"><img src="{{producto.fotoURL}}" class="imagen"></div>
+                                    <hr>
+                                    <div style="flex: 2;"><strong>{{producto.nombre}}</strong></div>
+                                    <div style="flex: 1;"><strong>{{producto.stock}}</strong></div>
+                                    <div style="flex: 1;"><strong>{{producto.precio}}</strong></div>
+                                    <div style="flex: 2;">
+                                        <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="{% url 'eliminar' producto.id %}">¡eliminar!</a>
+                                        <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="">modificar</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <a class="btn btn-outline-light" href="">agregar producto</a>
                         {% endif %}
                     </div>
                 </div>

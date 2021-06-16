@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import inicio, nosotros, galeria, registro, inicio_sesion, api, form_cuenta, carrito, updateItem, checkout, ordenar, usuario
+from .views import inicio, nosotros, galeria, registro, inicio_sesion, api, form_cuenta, carrito, updateItem, checkout, ordenar, usuario, eliminar
 
 urlpatterns = [
     path ('', inicio, name="inicio"),
@@ -14,5 +14,6 @@ urlpatterns = [
     path ('update_item/', updateItem, name="update_item"),
     path ('checkout/', checkout, name="checkout"),
     path ('ordenar/', ordenar, name="ordenar"),
-    path ('usuario/', usuario, name="usuario")
+    path ('usuario/', usuario, name="usuario"),
+    path ('eliminar/<id>', eliminar, name="eliminar")
 ]

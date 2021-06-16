@@ -134,7 +134,13 @@ def usuario(request):
         cliente=False
     customer = request.user.customer
     direcciones = direccion.objects.filter(customer=customer)
+    productos =producto.objects.all()
     
 
-    context= {'direcciones': direcciones, 'cliente':cliente,'grupo':grupo,'grupos':grupos}
+    context= {'direcciones': direcciones, 'cliente':cliente,'productos':productos}
     return render(request, 'usuario.html',context)
+
+def eliminar(request, id):
+    productos = producto.objects.get(id=id)
+    productos.delete()
+    return redirect('usuario')
