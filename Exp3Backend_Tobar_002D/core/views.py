@@ -156,3 +156,17 @@ def crearProducto(request):
         form=productoform()
 
     return render(request, 'core/form_producto.html', {'form':form})
+
+def modificarProducto(request, id):
+    productos = producto.objects.get(id=id)
+
+    datos= {
+        'form': productoform(instance=productos)
+    }
+
+    if request.method=='POST':
+        formulario= productoform(data=request.POST, instance= productos)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('usuario')
+    return render(request, 'core/form_modproducto.html', datos)

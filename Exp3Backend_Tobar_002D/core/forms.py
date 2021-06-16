@@ -46,6 +46,38 @@ class cuentaForm(UserCreationForm):
 class productoform(ModelForm):
 
     class Meta:
+        model=producto
+        fields= ['nombre', 'stock', 'precio', 'foto',]
+        labels ={
+            'nombre': 'Ingrese nombre del producto',
+            'stock': 'Ingrese candidad del producto disponible',
+            'precio': 'Ingrese el valor del producto',
+            'foto': 'Seleccione foto del producto'
+        }
+        widgets={
+            'nombre': forms.TextInput(
+                attrs={
+                    'id': 'nombre',
+                    'name': 'nombre'
+                }
+            ),
+            'stock': forms.NumberInput(
+                attrs={
+                    'id': 'stock',
+                    'name': 'stock'
+                }
+            ),
+            'precio': forms.NumberInput(
+                attrs={
+                    'id': 'precio',
+                    'name': 'precio'
+                }
+            )
+        }
+
+class productoform(ModelForm):
+
+    class Meta:
         model= producto
         fields = ['nombre', 'stock', 'precio', 'foto',]
         labels ={

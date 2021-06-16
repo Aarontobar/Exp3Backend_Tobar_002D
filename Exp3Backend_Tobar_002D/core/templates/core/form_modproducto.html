@@ -20,7 +20,7 @@
             }
 
             .fondo{
-                background-image: url("{% static 'img/fondoagregar.jpg' %}");
+                background-image: url("{% static 'img/fondomodificar.jpg' %}");
                 background-repeat: no-repeat;
                 background-size: cover;
                 min-height: 50vh;
@@ -140,23 +140,19 @@
                                 {{form.nombre.label}}
                                 {{form.nombre}}
                             </div>
-                            <br>
                             <div class="input">
                                 {{form.stock.label}}
                                 {{form.stock}}
                             </div>
-                            <br>
                             <div class="input">
                                 {{form.precio.label}}
                                 {{form.precio}}
                             </div>
-                            <br>
                             <div class="input">
                                 {{form.foto.label}}
                                 {{form.foto}}
                             </div>
-                            <br>
-                            <button class="btn btn-outline-dark" type="submit">agregar</button>
+                            <button type="submit" class="btn-outline-dark">Modificar</button>
                         </form>
                     </div>
                 </div>

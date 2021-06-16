@@ -150,7 +150,7 @@
                                     <div style="flex: 1;"><strong>{{producto.precio}}</strong></div>
                                     <div style="flex: 2;">
                                         <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="{% url 'eliminar' producto.id %}">¡eliminar!</a>
-                                        <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="">modificar</a>
+                                        <a style="float: rigth; margin: 5px;" class="btn btn-succes btn-outline-dark" href="{% url 'modificarProducto' producto.id %}">modificar</a>
                                     </div>
                                 </div>
                             {% endfor %}
