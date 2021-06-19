@@ -3,25 +3,13 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class customer(models.Model):
+class cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name
-
-class tarjeta(models.Model):
-    banco= models.CharField(max_length=40, verbose_name='banco')
-    numero= models.CharField(primary_key=True, max_length=16, verbose_name='numero')
-    mes= models.IntegerField(verbose_name='mes')
-    anno= models.IntegerField(verbose_name='anno')
-    titular= models.CharField(max_length=100, verbose_name='nombre')
-    cvv= models.IntegerField(verbose_name='cvv')
-    User= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-
-    def __str__(self):
-        return(self.numero)
 
 class producto(models.Model):
     nombre= models.CharField(max_length=50, verbose_name='nombre', null=True)
@@ -41,7 +29,7 @@ class producto(models.Model):
         return url
 
 class Orden(models.Model):
-    customer= models.ForeignKey(customer, on_delete=models.CASCADE, null=True)
+    cliente= models.ForeignKey(cliente, on_delete=models.CASCADE, null=True)
     fecha_orden= models.DateTimeField(auto_now_add=True)
     completo= models.BooleanField(default=False, null=True, blank=False)
     transaccion_id= models.CharField(max_length=200, null=True)
@@ -79,7 +67,7 @@ class OrdenItem(models.Model):
         return total
 
 class direccion(models.Model):
-    customer = models.ForeignKey(customer, on_delete=models.SET_NULL, null=True)
+    cliente = models.ForeignKey(cliente, on_delete=models.SET_NULL, null=True)
     orden = models.ForeignKey(Orden, on_delete=models.SET_NULL, blank=True, null=True)
     direccion = models.CharField(max_length=200, null=True)
     ciudad = models.CharField(max_length=200, null=True)

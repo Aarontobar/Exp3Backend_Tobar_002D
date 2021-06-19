@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import inicio, nosotros, galeria, registro, inicio_sesion, api, form_cuenta, carrito, updateItem, checkout, ordenar, usuario, eliminar, crearProducto, modificarProducto
+from .views import inicio, nosotros, galeria, registro, inicio_sesion, api, form_cuenta, carrito, updateItem, compra, ordenar, usuario, eliminar, crearProducto, modificarProducto
 
 urlpatterns = [
     path ('', inicio, name="inicio"),
@@ -12,7 +12,7 @@ urlpatterns = [
     path ('accounts/', include('django.contrib.auth.urls')),
     path ('carrito/', carrito, name="carrito"),
     path ('update_item/', updateItem, name="update_item"),
-    path ('checkout/', checkout, name="checkout"),
+    path ('compra/', compra, name="compra"),
     path ('ordenar/', ordenar, name="ordenar"),
     path ('usuario/', usuario, name="usuario"),
     path ('eliminar/<id>', eliminar, name="eliminar"),

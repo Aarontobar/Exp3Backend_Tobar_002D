@@ -12,15 +12,15 @@ from .models import *
 def inicio(request):
     if request.user.is_authenticated:
         try:
-            request.user.customer
+            request.user.cliente
         except ObjectDoesNotExist:
-            customer.objects.create(
+            cliente.objects.create(
                 user= request.user,
                 name= request.user.first_name,
                 email= request.user.email,
             )
-        custom = request.user.customer
-        orden, created = Orden.objects.get_or_create(customer=custom, completo=False)
+        cliente = request.user.cliente
+        orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
         items = orden.ordenitem_set.all()
         carritoItems = orden.getItemsCarrito
     else:
@@ -62,21 +62,21 @@ def form_cuenta(request):
     return render(request, 'core/form_crearcuenta.html',{'cuenta_form':cuenta_form})
 
 def carrito(request):
-    customer = request.user.customer
-    orden, created = Orden.objects.get_or_create(customer=customer, completo=False)
+    cliente= request.user.cliente
+    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
     items = orden.ordenitem_set.all()
     carritoItems = orden.getItemsCarrito
     context = {'items':items, 'orden':orden, 'carritoItems':carritoItems}
     return render(request, 'carrito.html', context)
 
 
-def checkout(request):
-    customer = request.user.customer
-    orden, created = Orden.objects.get_or_create(customer=customer, completo=False)
+def compra(request):
+    cliente = request.user.cliente
+    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
     items = orden.ordenitem_set.all()
 
     context = {'items':items, 'orden':orden}
-    return render(request, 'checkout.html', context)
+    return render(request, 'compra.html', context)
 
 def updateItem(request):
     data = json.loads(request.body)
@@ -85,9 +85,9 @@ def updateItem(request):
 
     print('productoId: ', productoId, 'accion', accion)
 
-    customer = request.user.customer
+    cliente = request.user.cliente
     Producto = producto.objects.get(id=productoId)
-    orden, created = Orden.objects.get_or_create(customer=customer, completo=False)
+    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
 
     ordenItem, created = OrdenItem.objects.get_or_create(orden=orden, producto=Producto)
 
@@ -107,8 +107,8 @@ def ordenar(request):
     transaccion_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
 
-    customer = request.user.customer
-    orden, created = Orden.objects.get_or_create(customer=customer, completo=False)
+    cliente = request.user.cliente
+    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
     total = (data['total'])
     orden.transaccion_id = transaccion_id
 
@@ -116,7 +116,7 @@ def ordenar(request):
     orden.save()
 
     direccion.objects.create(
-        customer=customer,
+        cliente=cliente,
         orden=orden,
         direccion=data['envio']['direccion'],
         ciudad=data['envio']['ciudad'],
@@ -132,8 +132,8 @@ def usuario(request):
         cliente=True
     else:
         cliente=False
-    customer = request.user.customer
-    direcciones = direccion.objects.filter(customer=customer)
+    cliente = request.user.cliente
+    direcciones = direccion.objects.filter(cliente=cliente)
     productos =producto.objects.all()
     
 
