@@ -44,11 +44,13 @@ function addCookieItem(productoId, accion) {
         if (carrito[productoId] == undefined) {
             carrito[productoId] = {'cantidad':1}
         } else {
-            carrito[productoId]['cantidad'] += 1
+            carrito[productoId]['cantidad'] += 1,
+            carrito[productoId]['stock'] -=1
         }
     }
     if (accion == 'remove') {
-        carrito[productoId]['cantidad'] -=1
+        carrito[productoId]['cantidad'] -=1,
+        carrito[productoId]['stock'] +=1
         
         if (carrito[productoId]['cantidad'] <= 0) {
             console.log('Articulo eliminado')

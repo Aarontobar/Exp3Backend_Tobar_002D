@@ -58,9 +58,10 @@
                         <li class="nav-item"><a class="nav-link" href="#">nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
                         {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'api' %}">tienda fortnite</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">{{ user.username }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">
+                            <li class="nav-item"><a class="nav-link" href="{% url 'usuario' %}">{{ user.username }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">
                                 <img src="{% static 'img/carritoIcono.png' %}" id="carrito">
                             </a></li>
                         {% else %}

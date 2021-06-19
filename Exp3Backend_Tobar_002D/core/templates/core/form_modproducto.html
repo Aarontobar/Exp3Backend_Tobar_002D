@@ -94,6 +94,13 @@
                 outline: none;
                 background: transparent;
             }
+
+            .input textarea{
+                border: 1px solid #000000;
+                width: 100%;
+                background: transparent;
+                border-radius: 8px;
+            }
         </style>
     </head>
     <body>
@@ -141,8 +148,9 @@
                                 {{form.nombre}}
                             </div>
                             <div class="input">
-                                {{form.stock.label}}
-                                {{form.stock}}
+                                {{form.descripcion.label}}
+                                <hr>
+                                {{form.descripcion}}
                             </div>
                             <div class="input">
                                 {{form.precio.label}}

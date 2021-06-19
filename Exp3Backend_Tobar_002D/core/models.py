@@ -14,7 +14,7 @@ class cliente(models.Model):
 class producto(models.Model):
     nombre= models.CharField(max_length=50, verbose_name='nombre', null=True)
     precio= models.IntegerField(verbose_name='precio')
-    stock= models.IntegerField(verbose_name='stock')
+    descripcion= models.CharField(max_length=500, verbose_name='descripcion', null=True)
     foto= models.ImageField(verbose_name='foto')
 
     def __str__(self):

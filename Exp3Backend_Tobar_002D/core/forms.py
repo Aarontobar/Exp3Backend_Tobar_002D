@@ -47,11 +47,11 @@ class productoform(ModelForm):
 
     class Meta:
         model=producto
-        fields= ['nombre', 'stock', 'precio', 'foto',]
+        fields= ['nombre', 'descripcion', 'precio', 'foto',]
         labels ={
             'nombre': 'Ingrese nombre del producto',
             'stock': 'Ingrese candidad del producto disponible',
-            'precio': 'Ingrese el valor del producto',
+            'descripcion': 'ingrese una descripcion para este producto por favor',
             'foto': 'Seleccione foto del producto'
         }
         widgets={
@@ -61,42 +61,10 @@ class productoform(ModelForm):
                     'name': 'nombre'
                 }
             ),
-            'stock': forms.NumberInput(
+            'descripcion': forms.Textarea(
                 attrs={
-                    'id': 'stock',
-                    'name': 'stock'
-                }
-            ),
-            'precio': forms.NumberInput(
-                attrs={
-                    'id': 'precio',
-                    'name': 'precio'
-                }
-            )
-        }
-
-class productoform(ModelForm):
-
-    class Meta:
-        model= producto
-        fields = ['nombre', 'stock', 'precio', 'foto',]
-        labels ={
-            'nombre': 'Ingrese nombre',
-            'stock': 'Ingrese valor para stock',
-            'precio': 'Ingrese precio',
-            'foto': 'Seleccione imagen'
-        }
-        widgets ={
-            'nombre': forms.TextInput(
-                attrs={
-                    'id': 'nombre',
-                    'name': 'nombre'
-                }
-            ),
-            'stock': forms.NumberInput(
-                attrs ={
-                    'id': 'stock', 
-                    'name': 'stock'
+                    'id': 'descripcion',
+                    'name': 'descripcion'
                 }
             ),
             'precio': forms.NumberInput(

@@ -7,9 +7,16 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="stylesheet" href="{% static 'css/estilos_api.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estilos_api2.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            #carrito{
+                width: 25px;
+                display: inline-block;
+                margin-left: 15px;
+            }
+        </style>
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#enviar").click(function(){
@@ -48,14 +55,12 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">galeria</a></li>
-                        {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link" href="#">carrito</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">{{ user.username }}</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'form_user' %}">registrarse</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">iniciar sesion</a></li>
-                        {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'api' %}">tienda fortnite</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'usuario' %}">{{ user.username }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">
+                            <img id="carrito" src="{% static 'img/carritoIcono.png' %}">
+                        </a></li>
                     </ul>
                 </div>
             </div>

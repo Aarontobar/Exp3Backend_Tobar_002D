@@ -41,6 +41,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">galeria</a></li>
                         {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'api' %}">tienda fortnite</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">cerrar sesion</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">{{ user.username }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">

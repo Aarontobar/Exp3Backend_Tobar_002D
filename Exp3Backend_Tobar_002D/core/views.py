@@ -19,8 +19,8 @@ def inicio(request):
                 name= request.user.first_name,
                 email= request.user.email,
             )
-        cliente = request.user.cliente
-        orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
+        clientes = request.user.cliente
+        orden, created = Orden.objects.get_or_create(cliente=clientes, completo=False)
         items = orden.ordenitem_set.all()
         carritoItems = orden.getItemsCarrito
     else:
@@ -132,8 +132,8 @@ def usuario(request):
         cliente=True
     else:
         cliente=False
-    cliente = request.user.cliente
-    direcciones = direccion.objects.filter(cliente=cliente)
+    clientes = request.user.cliente
+    direcciones = direccion.objects.filter(cliente=clientes)
     productos =producto.objects.all()
     
 
