@@ -52,7 +52,7 @@
 
                         <form  method="POST" action="#" id="formulario">
                             {%csrf_token%}
-                            
+
                             <div class="input">
                                 {{cuenta_form.username.label}}
                                 {{cuenta_form.username}}
@@ -92,7 +92,7 @@
                             <br>
                             <br>
                             <div class="botones">
-                                <button type="submit">crear cuenta</button>
+                                <button type="submit" id="crear">crear cuenta</button>
                                 <button type="reset">borrar</button>
                             </div>
                         </form>
@@ -129,8 +129,10 @@
             var boton = document.getElementById('boton');
             var input = document.getElementById('id_password1');
             var input2 = document.getElementById('id_password2');
+            var crear = document.getElementById('crear');
 
             boton.addEventListener('click', mostrarcontraseña);
+            crear.addEventListener('click', cambiar);
 
             function mostrarcontraseña(){
                 if(input.type == "password"){
@@ -142,6 +144,12 @@
                     input.type = "password";
                     input2.type = "password";
                     boton.src = "{% static 'img/candado_cerrado.png' %}";
+                }
+            }
+
+            function cambiar(){
+                if(input.type=="text"){
+                    input.type="password";
                 }
             }
 

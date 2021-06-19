@@ -1,0 +1,11 @@
+-- usuario administrador --
+
+usuario: admin
+contraseña: 1234
+
+-- usuario cliente--
+
+usuario: cliente
+contraseña: gamezoneclie1
+
+http://127.0.0.1:8000/inicio/

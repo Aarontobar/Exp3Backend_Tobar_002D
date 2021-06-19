@@ -2,7 +2,7 @@ from django.urls import path, include
 from .views import inicio, nosotros, galeria, registro, inicio_sesion, api, form_cuenta, carrito, updateItem, compra, ordenar, usuario, eliminar, crearProducto, modificarProducto
 
 urlpatterns = [
-    path ('', inicio, name="inicio"),
+    path ('inicio/', inicio, name="inicio"),
     path ('nosotros/', nosotros, name="nosotros"),
     path ('galeria/', galeria, name="galeria"),
     path ('registro/' ,registro, name="registro"),

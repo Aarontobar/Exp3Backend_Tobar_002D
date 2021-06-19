@@ -87,7 +87,7 @@
                                 <img src="{% static 'img/candado_cerrado.png' %}" id="boton">
                             </div>
 
-                            <button type="submit" value="login">iniciar sesion</button>
+                            <button type="submit" value="login" id="login">iniciar sesion</button>
                         </form>
                     </div>
                 </div>
@@ -119,8 +119,10 @@
 
             var boton = document.getElementById('boton');
             var input = document.getElementById('id_password');
+            var login = document.getElementById('login');
 
             boton.addEventListener('click',mostrar);
+            login.addEventListener('click',cambiar);
 
             function mostrar(){
                 if(input.type == "password"){
@@ -130,6 +132,12 @@
                 else{
                     input.type="password";
                     boton.src="{% static 'img/candado_cerrado.png' %}";
+                }
+            }
+
+            function cambiar(){
+                if(input.type == "text"){
+                    input.type="password"
                 }
             }
         </script>
